@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhargav Parmar - Mobile Application Developer</title>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4F46E5, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .parallax {
+            transition: transform 0.3s ease-out;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            height: calc(100% - 10px);
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        @media (min-width: 768px) {
+            .timeline-item:not(:last-child)::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .experience-content.collapsed {
+            height: 5.5em;
+            overflow: hidden;
+        }
+        .experience-content.expanded {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">BP</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-indigo-600 transition">About</a>
+                    <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+                    <a href="#experience" class="hover:text-indigo-600 transition">Experience</a>
+                    <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+                    <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+                </div>
+                <button class="md:hidden" onclick="toggleMenu()">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-white transform translate-x-full transition-transform duration-300 z-40">
+        <div class="p-6">
+            <div class="flex justify-end">
+                <button onclick="toggleMenu()">
+                    <i class="bi bi-x text-3xl"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 mt-8">
+                <a href="#about" class="text-xl" onclick="toggleMenu()">About</a>
+                <a href="#skills" class="text-xl" onclick="toggleMenu()">Skills</a>
+                <a href="#experience" class="text-xl" onclick="toggleMenu()">Experience</a>
+                <a href="#projects" class="text-xl" onclick="toggleMenu()">Projects</a>
+                <a href="#contact" class="text-xl" onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-cyan-50 pt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">
+                    Bhargav Parmar
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="200">
+                    Mobile Application Developer
+                </h2>
+                <p class="text-xl text-gray-600 mb-12 typewriter" data-aos="fade-up" data-aos-delay="400">
+                    Crafting elegant mobile experiences.
+                </p>
+                <div class="floating">
+                    <a href="#about" class="text-3xl text-indigo-600">
+                        <i class="bi bi-arrow-down-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">About Me</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                <p class="mb-6">
+                    As a Technical Lead of Mobile Application Development at Future Education, I am responsible for developing and deploying mobile applications for Android and iOS platforms. I have over 9 years of experience in mobile application development, with a focus on high performance and user experience.
+                </p>
+                <p class="mb-6">
+                    I have built native Android apps with Java, Kotlin and cross-platform apps using Flutter. I have also managed a team of developers, conducted interviews, and assigned daily tasks. I regularly collaborate with backend teams to ensure seamless integration and test apps for performance and reliability.
+                </p>
+                <p>
+                    I am passionate about creating innovative and user-friendly mobile applications that enhance the learning experience. Working with clients across India, USA, China, Australia, and Saudi Arabia has given me a global perspective on mobile development needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-6">Programming Languages</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>Kotlin</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Java</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Dart</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-6">Frameworks & Tools</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>Flutter</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Android SDK</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Unreal Engine</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-6">Integrations</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>Payment Gateways</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Maps (Google/Tencent)</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Firebase/Notifications</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-6">Other Skills</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>Version Control</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>UI/UX Design</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Marketing & Analytics</span>
+                            <i class="bi bi-check-circle-fill text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Work Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline items -->
+                <div class="space-y-12">
+                    <div class="timeline-item relative pl-10 md:pl-0" data-aos="fade-up">
+                        <div class="flex md:justify-between items-start flex-col md:flex-row">
+                            <div class="order-1 w-full md:w-5/12 md:text-right md:pr-8 mb-4 md:mb-0">
+                                <h3 class="font-bold text-gray-800 text-xl">Technical Lead | Mobile Application Developer</h3>
+                                <p class="text-indigo-600">Prashastha Future Education Pvt.Ltd., Bangalore (Remote)</p>
+                                <p class="text-sm text-gray-500">February 2024 - Present</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 bg-indigo-600 shadow-xl w-8 h-8 rounded-full">
+                                <i class="bi bi-briefcase-fill text-white text-sm"></i>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 md:ml-8">
+                                <div class="experience-content collapsed">
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                        <li>Lead end-to-end development of mobile applications for both Android and iOS platforms, ensuring high-quality performance and user experience.</li>
+                                        <li>Successfully deployed mobile apps on Google Play Store and Apple App Store.</li>
+                                        <li>Developed and published a game project using Unreal Engine for Android and iOS.</li>
+                                        <li>Conducted interviews for mobile developer positions, evaluating candidates' technical and problem-solving skills.</li>
+                                        <li>Managed a team of developers by assigning tasks, providing guidance, and monitoring daily progress.</li>
+                                        <li>Delivered product demos to clients and internal teams to showcase features and gather feedback.</li>
+                                        <li>Worked extensively on native Android apps using Kotlin and cross-platform apps with Flutter for Android, iOS, and web.</li>
+                                        <li>Collaborated with backend teams to test and ensure seamless integration of front-end and back-end functionalities.</li>
+                                        <li>Performed comprehensive app testing, ensuring optimal performance and bug-free experiences on both mobile and web platforms.</li>
+                                    </ul>
+                                </div>
+                                <button class="read-more-btn mt-4 text-indigo-600 hover:text-indigo-800 font-medium">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item relative pl-10 md:pl-0" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex md:justify-between items-start flex-col md:flex-row">
+                            <div class="order-1 w-full md:w-5/12 md:text-right md:pr-8 mb-4 md:mb-0">
+                                <h3 class="font-bold text-gray-800 text-xl">Mobile App Developer</h3>
+                                <p class="text-indigo-600">Safari Infosoft, Ahmedabad, India</p>
+                                <p class="text-sm text-gray-500">October 2019 - January 2024</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 bg-indigo-600 shadow-xl w-8 h-8 rounded-full">
+                                <i class="bi bi-briefcase-fill text-white text-sm"></i>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 md:ml-8">
+                                <div class="experience-content collapsed">
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                        <li>Involved in all phases of mobile application projects, including design, development, testing, deployment, and bug fixing.</li>
+                                        <li>Developed over 20+ mobile applications using Java and Kotlin, ensuring high performance and reliability.</li>
+                                        <li>Integrated various payment gateways such as Stripe, Atom, Alipay, WeChat Pay, PayUmoney, Paytm, and Razorpay.</li>
+                                        <li>Worked on social media integration, Google Maps, Tencent and Baidu Maps, third-party GitHub libraries, Firebase, Google, Branch.io, and JPush notifications.</li>
+                                        <li>Created app and website designs using online graphical tools and Photoshop.</li>
+                                        <li>Managed content alignment for hardcover and paperback books using MacOS Pages.</li>
+                                        <li>Handled marketing strategies for mobile and web applications using Google AdSense, Facebook, and Instagram ads.</li>
+                                    </ul>
+                                </div>
+                                <button class="read-more-btn mt-4 text-indigo-600 hover:text-indigo-800 font-medium">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item relative pl-10 md:pl-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex md:justify-between items-start flex-col md:flex-row">
+                            <div class="order-1 w-full md:w-5/12 md:text-right md:pr-8 mb-4 md:mb-0">
+                                <h3 class="font-bold text-gray-800 text-xl">Android Developer</h3>
+                                <p class="text-indigo-600">Widetech Pvt. Ltd, Ahmedabad, India</p>
+                                <p class="text-sm text-gray-500">May 2016 - August 2016</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 bg-indigo-600 shadow-xl w-8 h-8 rounded-full">
+                                <i class="bi bi-briefcase-fill text-white text-sm"></i>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg w-full md:w-5/12 p-6 md:ml-8">
+                                <div class="experience-content collapsed">
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                        <li>Worked on full application lifecycle including bug fixing and performance improvement.</li>
+                                        <li>Developed and customized product-based applications similar to OLA and UBER.</li>
+                                        <li>Customized and maintained more than 7 Android applications.</li>
+                                        <li>Developed and customized Google Maps-based Android applications.</li>
+                                    </ul>
+                                </div>
+                                <button class="read-more-btn mt-4 text-indigo-600 hover:text-indigo-800 font-medium">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Future Education.ai</h3>
+                        <p class="text-gray-600 mb-4">Student-Teacher App where students can submit assignments, take tests, view analysis reports, and access learning materials.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India</p>
+                            <p><strong>Technology:</strong> Flutter, Dart</p>
+                            <p><strong>Platforms:</strong> Android, iOS</p>
+                            <p><strong>Features:</strong> Offline functionality, 10,000+ tablets installed in government schools</p>
+                        </div>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.future.education.ai&hl=en_IN" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                            <a href="https://apps.apple.com/in/app/future-education-app/id6469785061" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-apple"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Agreemo</h3>
+                        <p class="text-gray-600 mb-4">Agreement app that empowers individuals to create, manage, and get valuable insights into the agreements they make.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> USA</p>
+                            <p><strong>Technology:</strong> Flutter, Dart</p>
+                            <p><strong>Platforms:</strong> Android, iOS</p>
+                        </div>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.insura.agreemo&hl=en_IN" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                            <a href="https://apps.apple.com/in/app/agreemo/id6483929175" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-apple"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CCMM</h3>
+                        <p class="text-gray-600 mb-4">Chat App connecting everyone with chat, share, recording and more.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> USA</p>
+                            <p><strong>Technology:</strong> Flutter, Dart</p>
+                            <p><strong>Platforms:</strong> iOS</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://apps.apple.com/us/app/id6504343530" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-apple"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smartlink</h3>
+                        <p class="text-gray-600 mb-4">Digital Hospital Management System covering Web, Android, and iOS platforms.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India</p>
+                            <p><strong>Technology:</strong> Flutter, Dart</p>
+                            <p><strong>Platforms:</strong> Android, iOS, Web</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://smatklinik.com" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-globe"></i> Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Revionz</h3>
+                        <p class="text-gray-600 mb-4">Online Review Application for Android and iOS platforms.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India</p>
+                            <p><strong>Technology:</strong> Flutter, Dart</p>
+                            <p><strong>Platforms:</strong> Android, iOS</p>
+                        </div>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.review.revionz&hl=en_IN&gl=US" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                            <a href="https://apps.apple.com/in/app/revionz/id1660207895" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-apple"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Shopizen</h3>
+                        <p class="text-gray-600 mb-4">Multi-Language Online Literature App supporting multiple languages.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India</p>
+                            <p><strong>Technology:</strong> Android, Kotlin</p>
+                            <p><strong>Platforms:</strong> Android, iOS</p>
+                        </div>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.shopizen&hl=en_IN" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                            <a href="https://apps.apple.com/in/app/shopizen-books-and-stories/id1534281985" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-apple"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="bg-white text-indigo-600 border border-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-600 hover:text-white transition">
+                    View More Projects
+                </button>
+            </div>
+
+            <!-- Hidden Projects (Initially) -->
+            <div id="moreProjects" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Project Card 7 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Logibee Operation</h3>
+                        <p class="text-gray-600 mb-4">Logistics Management Platform For Vendors.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India/Saudi Arabia</p>
+                            <p><strong>Technology:</strong> Android, Kotlin</p>
+                            <p><strong>Platforms:</strong> Android</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.logibee.ops.ops&hl=en_IN" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 8 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Logibee</h3>
+                        <p class="text-gray-600 mb-4">Logistics Management Platform For Delivery Man.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> India/Saudi Arabia</p>
+                            <p><strong>Technology:</strong> Android, Kotlin</p>
+                            <p><strong>Platforms:</strong> Android</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.logi_bee&hl=en_IN" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="bi bi-google-play"></i> Play Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 9 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Peerhand</h3>
+                        <p class="text-gray-600 mb-4">Machine Service Provider System for Android.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> USA</p>
+                            <p><strong>Technology:</strong> Android, Kotlin</p>
+                            <p><strong>Platforms:</strong> Android</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-500">Not live anywhere</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 10 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">PeerLoyal / ICEE·冰吸</h3>
+                        <p class="text-gray-600 mb-4">Loyalty Points Solution for customer rewards.</p>
+                        <div class="space-y-2">
+                            <p><strong>Country:</strong> USA/China</p>
+                            <p><strong>Technology:</strong> Android, Java</p>
+                            <p><strong>Platforms:</strong> Android</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-500">Not live anywhere</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Education</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                        <h3 class="text-xl font-bold mb-2">MCA</h3>
+                        <p class="text-indigo-600">Gujarat Technical University, Ahmedabad</p>
+                        <p class="text-gray-600 mt-2">2015 - 2017</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold mb-2">BCA</h3>
+                        <p class="text-indigo-600">Gujarat University, Ahmedabad</p>
+                        <p class="text-gray-600 mt-2">2011 - 2014</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-indigo-50 to-cyan-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Let's Build Something Great Together!</h2>
+            <div class="max-w-4xl mx-auto">
+                <form id="contactForm" class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" rows="4" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <div id="formSuccess" class="hidden text-center bg-green-100 text-green-700 p-4 rounded-lg mt-6">
+                    Thank you for your message! I'll get back to you soon.
+                </div>
+
+                <div class="mt-16 flex justify-center space-x-8" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://linkedin.com" target="_blank" class="text-gray-600 hover:text-indigo-600 text-2xl transition-colors">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="text-gray-600 hover:text-indigo-600 text-2xl transition-colors">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="mailto:contact@bhargavparmar.com" class="text-gray-600 hover:text-indigo-600 text-2xl transition-colors">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="tel:+1234567890" class="text-gray-600 hover:text-indigo-600 text-2xl transition-colors">
+                        <i class="bi bi-telephone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p>© 2024 Bhargav Parmar. All rights reserved.</p>
+                <div class="flex justify-center mt-4 space-x-4 text-gray-400">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // Typewriter effect
+        const text = "Crafting elegant mobile experiences.";
+        let index = 0;
+        const typewriter = document.querySelector('.typewriter');
+
+        function type() {
+            if (index < text.length) {
+                typewriter.textContent = text.slice(0, index + 1);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+
+        // Start typing animation after a delay
+        setTimeout(type, 1000);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.style.opacity = '1';
+            } else {
+                backToTopButton.style.opacity = '0';
+            }
+            
+            // Parallax effect on scroll
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(window.pageYOffset * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // View more projects
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const moreProjects = document.getElementById('moreProjects');
+        
+        loadMoreBtn.addEventListener('click', () => {
+            if (moreProjects.classList.contains('hidden')) {
+                moreProjects.classList.remove('hidden');
+                loadMoreBtn.textContent = 'View Less Projects';
+                // Initialize AOS for new elements
+                AOS.refresh();
+            } else {
+                moreProjects.classList.add('hidden');
+                loadMoreBtn.textContent = 'View More Projects';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form inputs
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the data to a server
+            console.log('Form submitted:', { name, email, subject, message });
+            
+            // Show success message
+            document.getElementById('formSuccess').classList.remove('hidden');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('formSuccess').classList.add('hidden');
+            }, 5000);
+        });
+        
+        // Read More functionality for experience sections
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.previousElementSibling;
+                if (content.classList.contains('collapsed')) {
+                    content.classList.remove('collapsed');
+                    content.classList.add('expanded');
+                    this.textContent = 'Read Less';
+                } else {
+                    content.classList.remove('expanded');
+                    content.classList.add('collapsed');
+                    this.textContent = 'Read More';
+                }
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
